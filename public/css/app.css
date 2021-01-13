@@ -10929,7 +10929,7 @@ a.text-dark:focus {
   color: #38c172;
 }
 
-.counters .status.answered-accepted {
+.counters .status.answered_accepted {
   background: #38c172;
   color: #fff;
 }
