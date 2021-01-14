@@ -74,10 +74,12 @@
             </div>
         </div>
     </div>
-    @include('answers._index',[
-        'answers' => $question->answers,
-        'answersCount' => $question->answers_count
-    ])
+    @if($question->answers_count > 0)
+        @include('answers._index',[
+            'answers' => $question->answers,
+            'answersCount' => $question->answers_count
+        ])
+        @endif
 
     @include('answers._crete')
    
