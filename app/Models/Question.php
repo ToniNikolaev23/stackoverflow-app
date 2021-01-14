@@ -46,9 +46,7 @@ class Question extends Model
     }
 
     public function getBodyHtmlAttribute(){
-        $markdown = new CommonMarkConverter(['allow_unsafe_links' => false]);
-
-        return $markdown->convertToHtml($this->body);
+        return clean($this->bodyHtml());
     }
 
     public function answers(){
@@ -74,5 +72,19 @@ class Question extends Model
 
     public function getFavoritesCountAttribute(){
         return $this->favorites->count();
+    }
+
+    public function getExcerptAttribute(){
+       return $this->excerpt(250);
+    }
+
+    public function excerpt($value){
+        return \Illuminate\Support\Str::limit(strip_tags($this->bodyHtml), $value);
+    }
+
+    private function bodyHtml(){
+        $markdown = new CommonMarkConverter(['allow_unsafe_links' => false]);
+
+        return $markdown->convertToHtml($this->body);
     }
 }

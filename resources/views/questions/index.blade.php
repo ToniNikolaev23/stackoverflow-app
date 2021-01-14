@@ -53,7 +53,9 @@
                                 <a href="{{ $question->user->url}}">{{ $question->user->name}}</a>
                                 <small class="text-muted">{{ $question->created_date }}</small>
                             </p>
-                            {{ \Illuminate\Support\Str::limit($question->body, 250) }}
+                            <div class="excerpt">
+                            {{ $question->excerpt }}
+                        </div>
                         </div>
                     </div>
                     <hr>
