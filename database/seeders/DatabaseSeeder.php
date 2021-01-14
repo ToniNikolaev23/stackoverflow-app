@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Database\Seeder;
+use Database\Seeders\VotablesTableSeeder;
 use Database\Seeders\UsersQuestionsAnswersTableSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +21,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             UsersQuestionsAnswersTableSeeder::class,
-            FavoritesTableSeeder::class
+            FavoritesTableSeeder::class,
+            VotablesTableSeeder::class
         ]);
     }
 }
